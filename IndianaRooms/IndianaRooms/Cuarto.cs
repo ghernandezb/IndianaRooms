@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IndianaRooms.Interfaces;
 
 namespace IndianaRooms
 {
     class Cuarto
     {
-        public bool Abierto { get; private set; }
-        public object[,] Cuadrantes { get; private set; }
+        public IAccionable [,] Cuadrantes { get; private set; }
 
         public Cuarto(Coordenada coord) {
-            Cuadrantes = new object[coord.X, coord.Y];
-        }
-
-        public void AbrirCuarto()
-        {
-            Abierto = true;
+            Cuadrantes = new IAccionable[coord.X, coord.Y];
         }
 
         public object ObtenerObjetoDeCuadrante(Coordenada coor)
@@ -28,6 +23,23 @@ namespace IndianaRooms
         public void RemoverObjetoDeCuadrante(Coordenada coor)
         {
             Cuadrantes[coor.X, coor.Y] = null;
+        }
+        public virtual void Accionar(Coordenada coor) {
+
+        }
+
+        private IEnumerable<Coordenada> ObtenerCoordenadasLibres()
+        {
+            for (int x = 0; x < Cuadrantes.GetLength(0); x++)
+            {
+                for (int y = 0; y < Cuadrantes.GetLength(1); y++)
+                {
+                    if (Cuadrantes[x,y] == null)
+                    {
+                        yield return new Coordenada[x,y];
+                    }
+                }
+            }
         }
     }
 }

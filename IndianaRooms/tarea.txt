@@ -1,0 +1,1 @@
+Insertar un objeto modificarlo para agregar un booleano para verificar si se inserta algo en la pared (interruptor, puerta)
