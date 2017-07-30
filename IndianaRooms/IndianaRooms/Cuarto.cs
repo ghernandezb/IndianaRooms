@@ -28,6 +28,14 @@ namespace IndianaRooms
 
         }
 
+        protected void InsertarObjetoACuadrante(IAccionable objeto)
+        {
+            List<Coordenada> coordendasLibres = ObtenerCoordenadasLibres().ToList();
+            Random ran = new Random();
+            Coordenada coor = coordendasLibres[ran.Next(0, coordendasLibres.Count - 1)];
+            Cuadrantes[coor.X, coor.Y] = objeto;
+        }
+
         private IEnumerable<Coordenada> ObtenerCoordenadasLibres()
         {
             for (int x = 0; x < Cuadrantes.GetLength(0); x++)
@@ -36,7 +44,7 @@ namespace IndianaRooms
                 {
                     if (Cuadrantes[x,y] == null)
                     {
-                        yield return new Coordenada[x,y];
+                        yield return new Coordenada(x,y);
                     }
                 }
             }
