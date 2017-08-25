@@ -7,10 +7,17 @@ using IndianaRooms.Interfaces;
 
 namespace IndianaRooms
 {
-    class Puerta : IAccionable
+    class PuertaLlave : IAccionable
     {
+        public bool Abierta { get; private set; }
+
         public string Accionar()
         {
+            if (Abierta)
+            {
+
+            }
+
             return "Pasando al siguiente cuarto...";
         }
     }
