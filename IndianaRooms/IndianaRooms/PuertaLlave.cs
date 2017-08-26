@@ -7,18 +7,26 @@ using IndianaRooms.Interfaces;
 
 namespace IndianaRooms
 {
-    class PuertaLlave : IAccionable
+    class PuertaLlave : Accionable
     {
-        public bool Abierta { get; private set; }
-
-        public string Accionar()
+        public PuertaLlave() : base("Puerta")
         {
-            if (Abierta)
+
+        }
+
+        public override bool Accionar(Jugador jugador, out string mensaje)
+        {
+            if (jugador.BuscarItem(typeof(Llave)) != null)
             {
-
+                mensaje = "Has pasado de nivel";
+                jugador.RemoverInventario(typeof(Llave));
+                return true;
             }
-
-            return "Pasando al siguiente cuarto...";
+            else
+            {
+                mensaje = "La puerta esta cerrada con llave, busca la llave.";
+                return false;
+            }
         }
     }
 }

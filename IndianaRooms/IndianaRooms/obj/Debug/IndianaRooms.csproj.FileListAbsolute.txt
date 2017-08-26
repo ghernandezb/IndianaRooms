@@ -4,3 +4,9 @@ C:\Users\Discovery XP\Documents\GitHub\IndianaRooms\IndianaRooms\IndianaRooms\bi
 C:\Users\Discovery XP\Documents\GitHub\IndianaRooms\IndianaRooms\IndianaRooms\bin\Debug\IndianaRooms.pdb
 C:\Users\Discovery XP\Documents\GitHub\IndianaRooms\IndianaRooms\IndianaRooms\obj\Debug\IndianaRooms.exe
 C:\Users\Discovery XP\Documents\GitHub\IndianaRooms\IndianaRooms\IndianaRooms\obj\Debug\IndianaRooms.pdb
+C:\Users\machu\OneDrive\Documentos\GitHub\IndianaRooms\IndianaRooms\IndianaRooms\obj\Debug\IndianaRooms.csprojResolveAssemblyReference.cache
+C:\Users\machu\OneDrive\Documentos\GitHub\IndianaRooms\IndianaRooms\IndianaRooms\obj\Debug\IndianaRooms.exe
+C:\Users\machu\OneDrive\Documentos\GitHub\IndianaRooms\IndianaRooms\IndianaRooms\obj\Debug\IndianaRooms.pdb
+C:\Users\machu\OneDrive\Documentos\GitHub\IndianaRooms\IndianaRooms\IndianaRooms\bin\Debug\IndianaRooms.exe.config
+C:\Users\machu\OneDrive\Documentos\GitHub\IndianaRooms\IndianaRooms\IndianaRooms\bin\Debug\IndianaRooms.exe
+C:\Users\machu\OneDrive\Documentos\GitHub\IndianaRooms\IndianaRooms\IndianaRooms\bin\Debug\IndianaRooms.pdb

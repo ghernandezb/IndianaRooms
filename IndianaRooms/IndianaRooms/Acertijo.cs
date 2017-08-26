@@ -7,18 +7,19 @@ using IndianaRooms.Interfaces;
 
 namespace IndianaRooms
 {
-    class Acertijo : IAccionable
+    class Acertijo : Accionable
     {
         public string Texto { get; private set; }
 
-        public Acertijo(string texto)
+        public Acertijo(string texto) : base("Acertijo")
         {
             Texto = texto;
         }
 
-        public string Accionar()
+        public override bool Accionar(Jugador jugador, out string message)
         {
-            return Texto;
+            message = Texto;
+            return true;
         }
     }
 }

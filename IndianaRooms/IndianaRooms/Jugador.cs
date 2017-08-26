@@ -9,28 +9,28 @@ namespace IndianaRooms
 {
     class Jugador
     {     
-        private List<IAccionable> _inventario { get; set; }
+        private List<Accionable> _inventario { get; set; }
         public Coordenada Posicion { get; private set; }
         public Cuarto Cuarto { get; set; }
 
         public Jugador(Coordenada posicion, Cuarto cuarto)
         {
-            _inventario = new List<IAccionable>();
+            _inventario = new List<Accionable>();
             Posicion = posicion;
             Cuarto = cuarto;
 
         }
 
-        public void AgregarInventario(IAccionable accionable)
+        public void AgregarInventario(Accionable accionable)
         {
             _inventario.Add(accionable);
         }
 
         public void RemoverInventario(Type type)
         {
-            IAccionable itemToRemove = null;
+            Accionable itemToRemove = null;
 
-            foreach (IAccionable item in _inventario)
+            foreach (Accionable item in _inventario)
             {
                 if (item.GetType() == type)
                 {
@@ -45,9 +45,9 @@ namespace IndianaRooms
             }
         }
 
-        public IAccionable BuscarItem(Type type)
+        public Accionable BuscarItem(Type type)
         {
-            foreach (IAccionable item in _inventario)
+            foreach (Accionable item in _inventario)
             {
                 if (item.GetType() == type)
                 {

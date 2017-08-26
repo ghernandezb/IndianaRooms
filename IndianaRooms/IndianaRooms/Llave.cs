@@ -7,11 +7,19 @@ using IndianaRooms.Interfaces;
 
 namespace IndianaRooms
 {
-    class Llave : IAccionable
+    class Llave : Accionable
     {
-        public string Accionar()
+        public Llave() : base ("Llave")
         {
-            return "Llave recuperada";
+
+        }
+
+        public override bool Accionar(Jugador jugador, out string mensaje)
+        {
+            jugador.AgregarInventario(this);
+            jugador.Cuarto.RemoverObjetoDeCuadrante(jugador.Posicion);
+            mensaje = "Llave recuperada";
+            return true;
         }
     }
 }

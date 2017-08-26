@@ -46,8 +46,8 @@
     <Compile Include="Coordenada.cs" />
     <Compile Include="Cuarto.cs" />
     <Compile Include="CuartoAcertijo.cs" />
-    <Compile Include="Genero.cs" />
-    <Compile Include="Interfaces\IAccionable.cs" />
+    <Compile Include="CuartoLlave.cs" />
+    <Compile Include="Interfaces\Accionable.cs" />
     <Compile Include="Jugador.cs" />
     <Compile Include="Llave.cs" />
     <Compile Include="Program.cs" />

@@ -9,10 +9,10 @@ namespace IndianaRooms
 {
     class Cuarto
     {
-        public IAccionable [,] Cuadrantes { get; private set; }
+        public Accionable [,] Cuadrantes { get; private set; }
 
         public Cuarto(Coordenada coord) {
-            Cuadrantes = new IAccionable[coord.X, coord.Y];
+            Cuadrantes = new Accionable[coord.X, coord.Y];
         }
 
         public object ObtenerObjetoDeCuadrante(Coordenada coor)
@@ -28,11 +28,11 @@ namespace IndianaRooms
 
         }
 
-        protected void InsertarObjetoACuadrante(IAccionable objeto)
+        protected void InsertarObjetoACuadrante(Accionable objeto, bool pared)
         {
-            List<Coordenada> coordendasLibres = ObtenerCoordenadasLibres().ToList();
+            List<Coordenada> camposVacios = pared ? ObtenerVaciosPared().ToList() : ObtenerVacios().ToList();
             Random ran = new Random();
-            Coordenada coor = coordendasLibres[ran.Next(0, coordendasLibres.Count - 1)];
+            Coordenada coor = camposVacios[ran.Next(0, camposVacios.Count - 1)];
             Cuadrantes[coor.X, coor.Y] = objeto;
         }
 
@@ -46,6 +46,46 @@ namespace IndianaRooms
                     {
                         yield return new Coordenada(x,y);
                     }
+                }
+            }
+        }
+
+        private IEnumerable<Coordenada> ObtenerVacios()
+        {
+            for (int x = 0; x < Cuadrantes.GetLength(0); x++)
+            {
+                for (int y = 0; y < Cuadrantes.GetLength(1); y++)
+                {
+                    if (Cuadrantes[x, y] == null)
+                    {
+                        yield return new Coordenada(x, y);
+                    }
+                }
+            }
+        }
+
+        private IEnumerable<Coordenada> ObtenerVaciosPared()
+        {
+            for (int i = 0; i < Cuadrantes.GetLength(1); i++)
+            {
+                if (Cuadrantes[0, i] == null)
+                {
+                    yield return new Coordenada(0, i);
+                }
+                if (Cuadrantes[Cuadrantes.GetLength(0) - 1, i] == null)
+                {
+                    yield return new Coordenada(Cuadrantes.GetLength(0) - 1, i);
+                }
+            }
+            for (int i = 0; i < Cuadrantes.GetLength(0); i++)
+            {
+                if (Cuadrantes[i, 0] == null)
+                {
+                    yield return new Coordenada(i, 0);
+                }
+                if (Cuadrantes[i, Cuadrantes.GetLength(1) - 1] == null)
+                {
+                    yield return new Coordenada(i, Cuadrantes.GetLength(1) - 1);
                 }
             }
         }
